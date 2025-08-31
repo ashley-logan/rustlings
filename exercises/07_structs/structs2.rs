@@ -9,6 +9,20 @@ struct Order {
     count: u32,
 }
 
+impl Order {
+    fn new(name: String, year: u32, made_by_phone: bool, made_by_email: bool, made_by_mobile: bool, item_number: u32, count: u32) -> Self {
+            Self {
+                name,
+                year, 
+                made_by_phone, 
+                made_by_mobile,
+                made_by_email,
+                item_number,
+                count,
+            }
+    }
+}
+
 fn create_order_template() -> Order {
     Order {
         name: String::from("Bob"),
@@ -34,7 +48,17 @@ mod tests {
         let order_template = create_order_template();
 
         // TODO: Create your own order using the update syntax and template above!
-        // let your_order =
+        let your_order = Order {
+            name: String::from("Hacker in Rust"),
+            year: 2025,
+            made_by_phone: false,
+            made_by_email: true,
+            made_by_mobile: false,
+            item_number: 123,
+            count: 0,
+        };
+
+        let custom_order = Order::new(String::from("Ashley"), 2025, false, false, true, 99, 3);
 
         assert_eq!(your_order.name, "Hacker in Rust");
         assert_eq!(your_order.year, order_template.year);
